@@ -17,5 +17,6 @@ public class LeagueInvaders {
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gp = new GamePanel();
 		f.add(gp);
+		f.addKeyListener(gp);
 	}
 }
