@@ -10,13 +10,13 @@ public class LeagueInvaders {
 	}
 	LeagueInvaders(){
 		f = new JFrame(); 
+		gp = new GamePanel();
+		f.add(gp);
+		f.addKeyListener(gp);
 	}
 	public void setup() {
 		f.setSize(WIDTH, HEIGHT);
 		f.setVisible(true);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gp = new GamePanel();
-		f.add(gp);
-		f.addKeyListener(gp);
 	}
 }
