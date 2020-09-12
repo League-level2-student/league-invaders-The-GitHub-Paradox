@@ -10,7 +10,7 @@ public class Rocketship extends gameObject {
 	}
 	public void draw(Graphics g) {
         g.setColor(Color.BLUE);
-        g.fillRect(250, 700, 50, 50);
+        g.fillRect(x, y, width, height);
 	}
     public void right() {
         x+=speed;
