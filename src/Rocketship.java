@@ -37,20 +37,23 @@ public class Rocketship extends gameObject {
 	}
     public void right() {
         x+=speed;
+        super.update();
     }
     public void left() {
         x-=speed;
+        super.update();
     }
     public void up() {
         y-=speed;
+        super.update();
     }
     public void down() {
         y+=speed;
+        super.update();
     }
 	public Projectile getProjectile() {
 		// TODO Auto-generated method stub
 		Projectile prj = new Projectile(x + width/2 - 3, y, 10, 10);
 		return prj;
-
 	}
 }

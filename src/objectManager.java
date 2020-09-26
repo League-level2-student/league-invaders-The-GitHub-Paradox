@@ -4,8 +4,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class objectManager implements ActionListener {
 	Rocketship rocket;
+	int score = 0;
 	ArrayList<Projectile> projectiles = new ArrayList<>();
 	ArrayList<Alien> aliens = new ArrayList<>();
 	Random r = new Random();
@@ -20,7 +23,15 @@ public class objectManager implements ActionListener {
 				if (aliens.get(i).collisionBox.intersects(projectiles.get(i1).collisionBox)) {
 					aliens.get(i).isActive = false;
 					projectiles.get(i1).isActive = false;
+					score++;
 				}
+			}
+		}
+		for (int i3 = 0; i3 < aliens.size(); i3++) {
+			if (aliens.get(i3).collisionBox.intersects(rocket.collisionBox)) {
+				rocket.isActive = false;
+				aliens.get(i3).isActive = false;
+				JOptionPane.showMessageDialog(null, "You killed " + score + " enemies");
 			}
 		}
 	}
@@ -39,12 +50,15 @@ public class objectManager implements ActionListener {
 			if (aliens.get(i).y >= LeagueInvaders.HEIGHT) {
 				aliens.get(i).isActive = false;
 			}
-			for (int i1 = 0; i1 < projectiles.size(); i1++) {
-				projectiles.get(i1).update();
-				if (projectiles.get(i1).y <= 0) {
-					projectiles.get(i1).isActive = false;
-				}
+		}
+		for (int i1 = 0; i1 < projectiles.size(); i1++) {
+			projectiles.get(i1).update();
+			if (projectiles.get(i1).y <= 0) {
+				projectiles.get(i1).isActive = false;
 			}
+		}
+		if (rocket.isActive == false) {
+
 		}
 		checkCollision();
 		purgeObject();
@@ -69,7 +83,7 @@ public class objectManager implements ActionListener {
 		for (int i5 = 0; i5 < projectiles.size(); i5++) {
 			if (projectiles.get(i5).isActive == false) {
 				projectiles.remove(i5);
-				
+
 			}
 		}
 	}

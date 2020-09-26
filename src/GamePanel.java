@@ -47,13 +47,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
     public void gameStart() {
         alienSpawn = new Timer(1000 , obm);
         alienSpawn.start();
+        rs.isActive = true;
     }
     public void updateMenuState() {
     	
     }
     public void updateGameState() {
     	obm.update();
-    	if(rs.isActive = false) {
+    	if(rs.isActive == false) {
     		currentState = END;
     	}
     }
@@ -129,19 +130,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		    }
 		}
 		if (e.getKeyCode()==KeyEvent.VK_UP) {
-		    System.out.println("UP");
 		    rs.up();
 		}
 		if (e.getKeyCode()==KeyEvent.VK_DOWN) {
-		    System.out.println("DOWN");
 		    rs.down();
 		}
 		if (e.getKeyCode()==KeyEvent.VK_LEFT) {
-		    System.out.println("LEFT");
 		    rs.left();
 		}
 		if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
-		    System.out.println("RIGHT");
 		    rs.right();
 		}
 		if(e.getKeyCode()==KeyEvent.VK_SPACE) {

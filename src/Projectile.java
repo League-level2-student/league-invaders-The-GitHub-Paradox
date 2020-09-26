@@ -22,7 +22,7 @@ public class Projectile extends gameObject{
 	public Projectile(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		// TODO Auto-generated constructor stub
-		speed = 10;
+		speed = 5;
 		if (needImage) {
 		    loadImage ("bullet.png");
 		}
